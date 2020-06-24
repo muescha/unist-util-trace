@@ -1,0 +1,47 @@
+{
+  "name": "unist-util-trace-diff",
+  "version": "0.0.1",
+  "description": "Parse unist trees, and map over nodes that pass a predicate function",
+  "repository": "github:muescha/unist-util-trace-diff",
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint src/** --ext .js,.jsx,.ts,.tsx",
+    "prepack": "yarn run build",
+    "prepublishOnly": "yarn test && yarn run lint",
+    "preversion": "yarn run format && git add -A src",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Michael Nietzold https://github.com/muescha",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "diff": "^4.0.2",
+    "jsondiffpatch": "^0.4.1",
+    "remeda": "^0.0.14",
+    "unist-diff": "^2.0.0",
+    "unist-util-is": "^4.0.1",
+    "vfile": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/diff": "^4.0.2",
+    "@types/jest": "^25.1.2",
+    "@types/node": "^13.7.0",
+    "@types/unist": "^2.0.3",
+    "@types/unist-util-is": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-jest": "^23.7.0",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5",
+    "unist-builder": "^2.0.2"
+  }
+}

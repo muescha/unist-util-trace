@@ -8,7 +8,8 @@
   ],
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "bxuild": "tsc",
+    "build": "tsdx build",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint src/** --ext .js,.jsx,.ts,.tsx",
     "prepack": "yarn run build",
@@ -23,8 +24,8 @@
     "chalk": "^4.1.0",
     "diff": "^4.0.2",
     "jsondiffpatch": "^0.4.1",
-    "remeda": "^0.0.14",
     "unist-diff": "^2.0.0",
+    "unist-util-inspect": "^6.0.0",
     "unist-util-is": "^4.0.1",
     "vfile": "^4.1.1"
   },
@@ -40,7 +41,9 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-jest": "^23.7.0",
     "jest": "^25.1.0",
+    "prettier": "^2.0.5",
     "ts-jest": "^25.2.0",
+    "tsdx": "^0.13.2",
     "typescript": "^3.7.5",
     "unist-builder": "^2.0.2"
   }

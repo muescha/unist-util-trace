@@ -2,7 +2,7 @@
 
 [![Chat][chat-badge]][chat]
 
-[**unist**][unist] utility to recursively reduce a tree
+[**unist**][unist] utility to trace changes while processing
 
 ## Install
 
@@ -15,10 +15,37 @@ npm install unist-util-trace-diff
 ## Usage
 
 ```js
-const traceDiff = require("unist-util-trace-diff");
-
+const { unistUtilTraceDiff } = require("unist-util-trace-diff")
+const traceDiffSettings = {
+  reporter: ["unist-diff"]
+}
 ```
 
+```js
+module.exports = {
+  plugins: [
+    ["remark-frontmatter", "yaml"],
+    [
+      "remark-retext",
+      unified()
+        .use(require("retext-english"))
+        .use(require("retext-syntax-urls"))
+        .use(() => unistUtilTraceDiff(traceDiffSettings))
+        .use(require("retext-syntax-mentions"), { style: /^@[\w-]{1,40}$/ })
+        .use(() => unistUtilTraceDiff(traceDiffSettings))
+        .use(require("retext-emoji"))
+        .use(() => unistUtilTraceDiff(traceDiffSettings))
+```
+
+
+## available reporters:
+
+```js
+constxtraceDiffSettings = {
+  reporter: ["unist-diff", "diff-json", "diff-inspect-full", "diff-inspect-plain", "json-diff-patch"]
+}
+
+```
 ## API
 
 ### 

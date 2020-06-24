@@ -30,11 +30,11 @@ module.exports = {
       unified()
         .use(require("retext-english"))
         .use(require("retext-syntax-urls"))
-        .use(() => unistUtilTraceDiff(traceDiffSettings))
+        .use(() => unistUtilTraceDiff(traceDiffSettings))  // first to set tracepoint
         .use(require("retext-syntax-mentions"), { style: /^@[\w-]{1,40}$/ })
-        .use(() => unistUtilTraceDiff(traceDiffSettings))
+        .use(() => unistUtilTraceDiff(traceDiffSettings)) // second to see diffs from mentions
         .use(require("retext-emoji"))
-        .use(() => unistUtilTraceDiff(traceDiffSettings))
+        .use(() => unistUtilTraceDiff(traceDiffSettings)) // third to see diffs in retext-emoji
 ```
 
 

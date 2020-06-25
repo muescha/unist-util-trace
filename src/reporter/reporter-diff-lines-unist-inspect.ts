@@ -24,6 +24,11 @@ const inspectOptions: { [key: string]: InspectOptions } = {
   },
 }
 
+// TODO:
+//  & { options: InspectOptions } how to add options to TraceDiffReporter?
+//  this not works :(
+//  interface T extends/implements TraceDiffReporter { options: InspectOptions }
+
 const reporterDiffLinesUnistInspectCustom = (
   left: Tree,
   right: Tree,
@@ -53,7 +58,7 @@ const reporterDiffLinesUnistInspectFull: TraceDiffReporter = (
 
 export const reporterDiffLinesUnistInspect: {
   [key: string]: TraceDiffReporter
-} & { options?: InspectOptions } = {
+} = {
   custom: reporterDiffLinesUnistInspectCustom,
   plain: reporterDiffLinesUnistInspectPlain,
   full: reporterDiffLinesUnistInspectFull,

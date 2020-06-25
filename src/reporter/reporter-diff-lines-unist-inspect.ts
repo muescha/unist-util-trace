@@ -9,14 +9,27 @@ interface InspectOptions {
   showPositions?: boolean
   showIndex?: boolean
   showChildCount?: boolean
+  showDataPretty?: true
 }
 
-function reporterDiffLinesUnistInspect(
+const inspectOptions: { [key: string]: InspectOptions } = {
+  plain: {
+    showPositions: false,
+    showIndex: false,
+    showChildCount: false,
+    showDataPretty: true,
+  },
+  full: {
+    showDataPretty: true,
+  },
+}
+
+const reporterDiffLinesUnistInspectCustom = (
   left: Tree,
   right: Tree,
   file: VFile,
   options: InspectOptions = {}
-): string {
+): string => {
   const resultUnistInspect: Change[] = diff.diffLines(
     inspect(left, options),
     inspect(right, options)
@@ -24,20 +37,24 @@ function reporterDiffLinesUnistInspect(
   return formatterDiff(resultUnistInspect)
 }
 
-export const reporterDiffLinesUnistInspectPlain: TraceDiffReporter = (
+const reporterDiffLinesUnistInspectPlain: TraceDiffReporter = (
   left: Tree,
   right: Tree,
   file: VFile
-): string => {
-  const inspectOptions: InspectOptions = {
-    showPositions: false,
-    showIndex: false,
-    showChildCount: false,
-  }
-  return reporterDiffLinesUnistInspect(left, right, file, inspectOptions)
+): string =>
+  reporterDiffLinesUnistInspectCustom(left, right, file, inspectOptions.plain)
+
+const reporterDiffLinesUnistInspectFull: TraceDiffReporter = (
+  left: Tree,
+  right: Tree,
+  file: VFile
+): string =>
+  reporterDiffLinesUnistInspectCustom(left, right, file, inspectOptions.full)
+
+export const reporterDiffLinesUnistInspect: {
+  [key: string]: TraceDiffReporter
+} & { options?: InspectOptions } = {
+  custom: reporterDiffLinesUnistInspectCustom,
+  plain: reporterDiffLinesUnistInspectPlain,
+  full: reporterDiffLinesUnistInspectFull,
 }
-export const reporterDiffLinesUnistInspectFull: TraceDiffReporter = (
-  left: Tree,
-  right: Tree,
-  file: VFile
-): string => reporterDiffLinesUnistInspect(left, right, file)

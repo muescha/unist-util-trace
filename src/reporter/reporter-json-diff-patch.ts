@@ -1,15 +1,8 @@
 import { TraceDiffReporter } from "../types/trace-diff-reporter"
 import { Tree } from "../types/tree"
 import { VFile } from "vfile"
-import jsonDiffPatch, { Delta } from "jsondiffpatch"
-
-function formatterJsonDiffPatch(
-  resultJsonDiffPatch: Delta | undefined
-): string {
-  return resultJsonDiffPatch
-    ? jsonDiffPatch.formatters.console.format(resultJsonDiffPatch, null)
-    : ""
-}
+import jsonDiffPatch from "jsondiffpatch"
+import { formatterJsonDiffPatch } from "./formatter-json-diff-patch"
 
 export const reporterJsonDiffPatch: TraceDiffReporter = (
   left: Tree,

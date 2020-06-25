@@ -4,6 +4,7 @@ import * as path from "path"
 import { Tree } from "./types/tree"
 import { TreeBeforeVFile } from "./types/tree-before-vfile"
 import { definedReporters } from "./reporter"
+import { wrapArray } from "./utils/wrap-array"
 
 export interface UnistUtilTraceDiffOptions {
   reporter?: string | string[]
@@ -13,9 +14,6 @@ export type UnistUtilTraceDiffRunner = (
   tree: Tree,
   file: TreeBeforeVFile
 ) => void
-
-const wrapArray = <V>(value: V | V[]): V[] =>
-  Array.isArray(value) ? value : [value]
 
 export const unistUtilTraceDiff = (
   options: UnistUtilTraceDiffOptions

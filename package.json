@@ -1,8 +1,13 @@
 {
   "name": "unist-util-trace-diff",
-  "version": "0.0.1",
-  "description": "Parse unist trees, and map over nodes that pass a predicate function",
+  "version": "1.0.0",
+  "description": "Trace changes to unist trees, and log changes",
   "repository": "github:muescha/unist-util-trace-diff",
+  "keywords": ["unist","unified","remark","retext"],
+  "bugs": {
+    "url": "https://github.com/muescha/unist-util-trace-diff/issues"
+  },
+  "homepage": "https://github.com/muescha/unist-util-trace-diff",
   "files": [
     "dist/**/*"
   ],

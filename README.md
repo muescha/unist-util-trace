@@ -14,6 +14,17 @@ npm install unist-util-trace-diff
 
 ## Usage
 
+### Minimal usage
+
+The minimal use is note you need use the `() =>` syntax. Apply this tracepoints to the chain. On the first call only the tree is saved for a diff. On subsequent calls it shows a diff to the previous saved unist tree: 
+```js
+.use(() => unistUtilTraceDiff()) // first call: save tree
+...
+.use(() => unistUtilTraceDiff()) // second call: show diff
+```
+
+
+
 ```js
 const { unistUtilTraceDiff } = require("unist-util-trace-diff")
 const traceDiffSettings = {
@@ -77,14 +88,11 @@ using [`jsondiffpatch`](https://github.com/benjamine/jsondiffpatch) with the con
 
 ## Related
 
-- [`unist-util-filter`](https://github.com/eush77/unist-util-filter)
-  — Create a new tree with all nodes that pass a test
-- [`unist-util-map`](https://github.com/syntax-tree/unist-util-map)
-  — Create a new tree with all nodes mapped by a given function
-- [`unist-util-remove`](https://github.com/eush77/unist-util-remove)
-  — Remove nodes from a tree that pass a test
-- [`unist-util-select`](https://github.com/eush77/unist-util-select)
-  — Select nodes with CSS-like selectors
+- [`retext-emoji`](https://github.com/retextjs/retext-syntax-mentions)
+  — retext plugin to classify @mentions as syntax, not natural language
+
+- [`retext-emoji`](https://github.com/retextjs/retext-emoji)
+  — retext plugin to support emoji, gemoji, and emoticons
 
 ## License
 

@@ -2,15 +2,16 @@
 import {
   Patch,
   PatchInsert,
+  PatchLeftNode,
   PatchOrder,
   PatchProps,
   PatchRemove,
   PatchReplace,
+  PatchRightNode,
   PatchText,
   Result,
 } from "unist-diff"
 import { VFile } from "vfile"
-import path from "path"
 import chalk, { Chalk } from "chalk"
 import inspect from "unist-util-inspect"
 import { wrapArray } from "../utils/wrap-array"
@@ -23,7 +24,10 @@ export const formatterUnistDiff = (result: Result, _file: VFile): string => {
     patch: Patch
   ): patch is PatchInsert | PatchReplace | PatchText => {
     return (
-      !Array.isArray(path) && ["insert", "replace", "text"].includes(patch.type)
+      !Array.isArray(patch) &&
+      // TODO find a better way to find out if it is a PAtchRgihtNode
+      //      [PatchType.insert, PatchType.replace, PatchType.text].includes(patch.type)
+      (patch as PatchRightNode).right !== undefined
     )
   }
   const isPatchLeftNode = (
@@ -35,8 +39,9 @@ export const formatterUnistDiff = (result: Result, _file: VFile): string => {
     | PatchText
     | PatchOrder => {
     return (
-      !Array.isArray(path) &&
-      ["remove", "replace", "props", "text", "order"].includes(patch.type)
+      !Array.isArray(patch) &&
+      //[PatchType.remove, PatchType.replace, PatchType.props, PatchType.text, PatchType.order].includes(patch.type)
+      (patch as PatchLeftNode).left !== undefined
     )
   }
 
@@ -74,11 +79,23 @@ export const formatterUnistDiff = (result: Result, _file: VFile): string => {
           }
           if (value.left && isPatchLeftNode(value)) {
             const prefixText = `${info}  left: `
-            report.push(prefix(prefixText, color, inspect(value.left)))
+            report.push(
+              prefix(
+                prefixText,
+                color,
+                inspect(value.left, { showDataPretty: true })
+              )
+            )
           }
           if (value.right && isPatchRightNode(value)) {
             const prefixText = `${info} right: `
-            report.push(prefix(prefixText, color, inspect(value.right)))
+            report.push(
+              prefix(
+                prefixText,
+                color,
+                inspect(value.right, { showDataPretty: true })
+              )
+            )
           }
         }
       })

@@ -46,7 +46,8 @@ declare module "unist-diff" {
     removes: MoveDiffItem[]
   }
 
-  export enum PatchType {
+  // Info: Use const here to get inlined as Text
+  export const enum PatchType {
     remove = "remove",
     insert = "insert",
     replace = "replace",

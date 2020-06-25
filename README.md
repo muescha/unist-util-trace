@@ -42,10 +42,35 @@ module.exports = {
 
 ```js
 constxtraceDiffSettings = {
-  reporter: ["unist-diff", "diff-json", "diff-inspect-full", "diff-inspect-plain", "json-diff-patch"]
+  reporter: [ "unist-diff", 
+              "diff-json", 
+              "diff-inspect-full", 
+              "diff-inspect-plain", 
+              "json-diff-patch"
+            ]
 }
-
 ```
+
+### Reporter `unist-diff`
+
+using [unist-diff](https://github.com/syntax-tree/unist-diff)
+ 
+### Reporter `diff-json`
+
+using [`diff.json`](https://github.com/kpdecker/jsdiff)
+
+### Reporter `diff-inspect-full`
+
+using [unist-util-inspect](https://github.com/syntax-tree/unist-util-inspect) without options and then [`diff.diffLines`](https://github.com/kpdecker/jsdiff)
+
+### Reporter `diff-inspect-plain`
+
+using [unist-util-inspect](https://github.com/syntax-tree/unist-util-inspect) with options for less noise and then [`diff.diffLines`](https://github.com/kpdecker/jsdiff)
+ 
+### Reporter `json-diff-patch`
+
+using [`jsondiffpatch`](https://github.com/benjamine/jsondiffpatch) with the console formatter
+
 ## API
 
 ### 

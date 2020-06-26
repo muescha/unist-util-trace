@@ -14,7 +14,9 @@
  )
 ```
 
-### TODO - Reporter in separate Packages
+### TODO
+
+i like to have the Reporter in separate Packages, so that only the needed diff packages are loaded and not all
 
 ```javascript
 .use(

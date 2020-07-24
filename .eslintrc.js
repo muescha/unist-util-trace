@@ -12,6 +12,7 @@ module.exports = {
   rules: {
     semi: [2, "never"],
     '@typescript-eslint/no-use-before-define': "off" ,
+    '@typescript-eslint/no-unused-vars': ["error", { "argsIgnorePattern": "^_" }] ,
     '@typescript-eslint/member-delimiter-style': [
       2,
       {

@@ -1,4 +1,4 @@
-# unist-util-trace-diff
+# unist-util-trace
 
 [![Chat][chat-badge]][chat]
 
@@ -8,8 +8,8 @@
 
 [npm][]:
 
-```bash
-npm install unist-util-trace-diff
+```shell
+npm install unist-util-trace
 ```
 
 ## Usage
@@ -18,15 +18,15 @@ npm install unist-util-trace-diff
 
 The minimal use is note you need use the `() =>` syntax. Apply this tracepoints to the chain. On the first call only the tree is saved for a diff. On subsequent calls it shows a diff to the previous saved unist tree: 
 ```js
-.use(() => unistUtilTraceDiff()) // first call: save tree
-...
-.use(() => unistUtilTraceDiff()) // second call: show diff
+.use(() => unistUtilTrace.diff()) // first call: save tree
+//...
+.use(() => unistUtilTrace.diff()) // second call: show diff
 ```
 
 
 
 ```js
-const { unistUtilTraceDiff } = require("unist-util-trace-diff")
+const { unistUtilTrace } = require("unist-util-trace")
 const traceDiffSettings = {
   reporter: ["unist-diff"]
 }
@@ -41,11 +41,11 @@ module.exports = {
       unified()
         .use(require("retext-english"))
         .use(require("retext-syntax-urls"))
-        .use(() => unistUtilTraceDiff(traceDiffSettings))  // first to set tracepoint
+        .use(() => unistUtilTrace.diff(traceDiffSettings))  // first to set tracepoint
         .use(require("retext-syntax-mentions"), { style: /^@[\w-]{1,40}$/ })
-        .use(() => unistUtilTraceDiff(traceDiffSettings)) // second to see diffs from mentions
+        .use(() => unistUtilTrace.diff(traceDiffSettings)) // second to see diffs from mentions
         .use(require("retext-emoji"))
-        .use(() => unistUtilTraceDiff(traceDiffSettings)) // third to see diffs in retext-emoji
+        .use(() => unistUtilTrace.diff(traceDiffSettings)) // third to see diffs in retext-emoji
 ```
 
 
@@ -82,6 +82,31 @@ using [unist-util-inspect](https://github.com/syntax-tree/unist-util-inspect) wi
 
 using [`jsondiffpatch`](https://github.com/benjamine/jsondiffpatch) with the console formatter
 
+
+## Logger
+
+### Logger `logDot`
+
+show a dot for each file
+
+new line after 100 items
+
+### Logger `logFileName`
+
+show current file name
+
+`newLine`: false -> change current line
+`newLine`: true -> each name on a new line
+
+
+### Logger `logNodeInspect`
+
+log all `nodeType` nodes with `inspect`
+
+### Logger `logTreeeInspect`
+
+run `inspect` on the current `tree`
+
 ## API
 
 ### 
@@ -96,7 +121,7 @@ using [`jsondiffpatch`](https://github.com/benjamine/jsondiffpatch) with the con
 
 ## License
 
-[MIT][license] © [Michael Nietzold / Muescha](https://github.com/muescha/unist-util-trace-diff)
+[MIT][license] © [Michael Nietzold / Muescha](https://github.com/muescha/unist-util-trace)
 
 <!-- Definition -->
 

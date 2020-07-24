@@ -25,7 +25,7 @@ export const formatterUnistDiff = (result: Result, _file: VFile): string => {
   ): patch is PatchInsert | PatchReplace | PatchText => {
     return (
       !Array.isArray(patch) &&
-      // TODO find a better way to find out if it is a PAtchRgihtNode
+      // TODO find a better way to find out if it is a PatchRightNode
       //      [PatchType.insert, PatchType.replace, PatchType.text].includes(patch.type)
       (patch as PatchRightNode).right !== undefined
     )

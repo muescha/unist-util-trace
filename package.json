@@ -1,8 +1,8 @@
 {
-  "name": "unist-util-trace-diff",
+  "name": "unist-util-trace",
   "version": "1.0.0",
   "description": "Trace changes to unist trees, and log changes",
-  "repository": "github:muescha/unist-util-trace-diff",
+  "repository": "github:muescha/unist-util-trace",
   "keywords": [
     "unist",
     "unified",
@@ -10,9 +10,9 @@
     "retext"
   ],
   "bugs": {
-    "url": "https://github.com/muescha/unist-util-trace-diff/issues"
+    "url": "https://github.com/muescha/unist-util-trace/issues"
   },
-  "homepage": "https://github.com/muescha/unist-util-trace-diff",
+  "homepage": "https://github.com/muescha/unist-util-trace",
   "files": [
     "dist/**/*"
   ],

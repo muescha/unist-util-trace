@@ -1,8 +1,8 @@
 import * as u from "unist-builder"
 
-import { unistUtilTraceDiff } from "../index"
+import { unistUtilTrace } from "../index"
 
-// describe("unist-util-trace-diff", () => {
+// describe("unist-util-trace", () => {
 //   describe("recursiveReduce()", () => {
 //     it("Invokes transform for every root node #k8mUoB", () => {
 //       const tree = u("root", [

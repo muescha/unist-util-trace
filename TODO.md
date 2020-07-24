@@ -32,3 +32,7 @@ i like to have the Reporter in separate Packages, so that only the needed diff p
            })
  )
 ```
+
+### Remark
+
+- print all current rules with setting

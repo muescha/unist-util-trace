@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Trace changes to unist trees, and log changes",
   "repository": "github:muescha/unist-util-trace-diff",
-  "keywords": ["unist","unified","remark","retext"],
+  "keywords": [
+    "unist",
+    "unified",
+    "remark",
+    "retext"
+  ],
   "bugs": {
     "url": "https://github.com/muescha/unist-util-trace-diff/issues"
   },
@@ -15,6 +20,7 @@
   "scripts": {
     "bxuild": "tsc",
     "build": "tsdx build",
+    "watch": "tsdx watch",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint src/** --ext .js,.jsx,.ts,.tsx",
     "prepack": "yarn run build",
@@ -22,7 +28,6 @@
     "preversion": "yarn run format && git add -A src",
     "test": "jest"
   },
-  "keywords": [],
   "author": "Michael Nietzold https://github.com/muescha",
   "license": "MIT",
   "dependencies": {
@@ -32,6 +37,8 @@
     "unist-diff": "^2.0.0",
     "unist-util-inspect": "^6.0.0",
     "unist-util-is": "^4.0.1",
+    "unist-util-source": "^2.0.0",
+    "unist-util-visit": "^2.0.3",
     "vfile": "^4.1.1"
   },
   "devDependencies": {

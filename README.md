@@ -48,8 +48,9 @@ module.exports = {
         .use(() => unistUtilTrace.diff(traceDiffSettings)) // third to see diffs in retext-emoji
 ```
 
+## Reporter
 
-## available reporters:
+### available reporters:
 
 ```js
 constxtraceDiffSettings = {

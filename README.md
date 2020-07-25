@@ -96,8 +96,8 @@ new line after 100 items
 
 show current file name
 
-`newLine`: false -> change current line
-`newLine`: true -> each name on a new line
+- `newLine`: false -> change current line
+- `newLine`: true -> each name on a new line
 
 
 ### Logger `logNodeInspect`

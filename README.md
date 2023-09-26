@@ -54,7 +54,7 @@ module.exports = {
 ### available reporters:
 
 ```js
-constxtraceDiffSettings = {
+const traceDiffSettings = {
   reporter: [ "unist-diff", 
               "diff-json", 
               "diff-inspect-full", 

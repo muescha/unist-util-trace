@@ -115,7 +115,7 @@ run `inspect` on the current `tree`
 
 ## Related
 
-- [`retext-emoji`](https://github.com/retextjs/retext-syntax-mentions)
+- [`retext-syntax-mentions`](https://github.com/retextjs/retext-syntax-mentions)
   — retext plugin to classify @mentions as syntax, not natural language
 
 - [`retext-emoji`](https://github.com/retextjs/retext-emoji)

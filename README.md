@@ -16,7 +16,8 @@ npm install unist-util-trace
 
 ### Minimal usage
 
-The minimal use is note you need use the `() =>` syntax. Apply this tracepoints to the chain. On the first call only the tree is saved for a diff. On subsequent calls it shows a diff to the previous saved unist tree: 
+To achieve optimal usage, employ the `() => syntax`. Apply these tracepoints to the chain. Upon the initial call, only the tree is stored for comparison. Upon subsequent calls, it displays a diff relative to the previously saved unist tree.
+
 ```js
 .use(() => unistUtilTrace.diff()) // first call: save tree
 //...

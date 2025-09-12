@@ -33,7 +33,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "diff": "^4.0.2",
-    "jsondiffpatch": "^0.4.1",
+    "jsondiffpatch": "^0.7.2",
     "unist-diff": "^2.0.0",
     "unist-util-inspect": "^6.0.0",
     "unist-util-is": "^4.0.1",
